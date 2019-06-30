@@ -31,4 +31,4 @@ If all the options are given, then no user prompts are required. This is useful 
 
 If -p is given, then no prompt regarding writing to files will be given, except if -o has been specified while -m has not
 
-f-strings don't work if python is less than 3.6
+There is one f-string in the codebase. F-strings don't work if the version of Python is less than 3.6
