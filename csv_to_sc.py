@@ -1,7 +1,31 @@
+#'csv_to_sc.py' is the main program for the csv-to-sc program.
+#It  converts .csv files into .sc files.
+
+GPL_COPYRIGHT = '''
+#Copyright (C) 2019  syed343 (GitHub)
+
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.'''
+
+GPL_WARRANTY = '''
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.'''
+
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see https://www.gnu.org/licenses/
+#or https://github.com/syed343/csv-to-sc/blob/master/LICENSE/.'''
+
 from parse_strings import is_subset, is_int, is_float, table_to_nums, num_to_sc_col
 from table import Table
 
 def main(args):
+
+    show_gpl(args)
+
     delim = get_delimiter(args)
 
     table = Table(get_raw(args, delim))
@@ -15,7 +39,14 @@ def main(args):
     mode = get_write_mode(args, filename)
 
     output_list(sc_list, filename, mode)
+
     return 0
+
+def show_gpl(args):
+    if args.count('--copyright') >= 1:
+        print(GPL_COPYRIGHT)
+    if args.count('--warranty') >= 1:
+        print(GPL_WARRANTY)
 
 def next_arg(args, opt):
     return args[args.index(opt) + 1]

@@ -24,6 +24,12 @@ USER OPTIONS (none of them is required):
     -p
         print to standard output without prompting
 
+    --warranty
+        display warranty information
+
+    --copyright
+        display copyright information
+
 Do not write options together (e.g. -fd).
 
 If an option is not given, a prompt will ask for it (but see below about -p).

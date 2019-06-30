@@ -1,3 +1,21 @@
+#parse_strings.py contains some usefule functions for csv_to_sc.py
+#
+#Copyright (C) 2019  syed343 (GitHub)
+#
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see https://www.gnu.org/licenses/
+#or https://github.com/syed343/csv-to-sc/blob/master/LICENSE/.
+
 def is_subset(array1, array2):
     for elem in array1:
         if not elem in array2:
