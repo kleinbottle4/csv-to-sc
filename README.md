@@ -1,5 +1,5 @@
 NAME
-    csv-to-sc - convert text files or user input after prompts into a .sc file
+    csv-to-sc - convert text files into a .sc spreadsheets based on a delimiter
 
 USAGE
     csv-to-sc [OPTIONS]

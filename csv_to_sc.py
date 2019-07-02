@@ -28,7 +28,7 @@ def main(args):
 
     delim = get_delimiter(args)
 
-    table = Table(get_raw(args, delim))
+    table = Table(get_csv(args, delim))
 
     table.table = table_to_nums(table.table)
 
@@ -58,27 +58,20 @@ def get_delimiter(args):
         delim = next_arg(args, '-d')
     return delim
 
-def get_raw(args, delim):
+def get_csv(args, delim):
     if args.count('-f') == 0:
         #-f not given
-        raw = []
-        empty_input = False
-        print('#Press enter on an empty line when done.')
-        while empty_input == False:
-            temp = input()
-            if temp == '':
-                empty_input = True
-            else:
-                raw.append(temp)
+        filename = input('#CSV file: ')
     else:
         #-f given
-        file = open(next_arg(args, '-f'))
-        text = file.read()
-        file.close()
-        #remove extra newline at the end
-        if text[-1] == '\n':
-            text = text[:-1]
-        raw = text.split('\n')
+        filename = next_arg(args, '-f')
+    file = open(filename)
+    text = file.read()
+    file.close()
+    #remove extra newline at the end
+    if text[-1] == '\n':
+        text = text[:-1]
+    raw = text.split('\n')
     #return a 2d array
     return [i.split(delim) for i in raw]
 
