@@ -37,4 +37,6 @@ If all the options are given, then no user prompts are required. This is useful 
 
 If -p is given, then no prompt regarding writing to files will be given, except if -o has been specified while -m has not
 
+If both -p and -o are given, -o takes priority.
+
 If five or more arguments are given, no GPL message is displayed.
