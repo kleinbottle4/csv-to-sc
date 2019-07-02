@@ -75,6 +75,7 @@ def get_csv(args, delim):
         else:
             valid = True
     text = file.read()
+    text = text.replace('"', r'\"')
     file.close()
     #remove extra newline at the end
     if text[-1] == '\n':
