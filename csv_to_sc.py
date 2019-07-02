@@ -65,7 +65,15 @@ def get_csv(args, delim):
     else:
         #-f given
         filename = next_arg(args, '-f')
-    file = open(filename)
+    valid = False
+    while valid == False:
+        try:
+            file = open(filename)
+        except FileNotFoundError:
+            print('#File not found. Try again...')
+            filename = input('#CSV file: ')
+        else:
+            valid = True
     text = file.read()
     file.close()
     #remove extra newline at the end
