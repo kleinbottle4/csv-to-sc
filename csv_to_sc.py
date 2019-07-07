@@ -30,6 +30,8 @@ def main(args):
 
     table = Table(get_csv(args, delim))
 
+#    formats = get_formats(table)
+
     table.table = table_to_nums(table.table)
 
     sc_list = generate_sc_list(table)
@@ -43,10 +45,11 @@ def main(args):
     return 0
 
 def show_gpl(args):
-    if args.count('--copyright') >= 1:
-        print(GPL_COPYRIGHT)
-    if args.count('--warranty') >= 1:
-        print(GPL_WARRANTY)
+    if args.count('--silent') == 0:
+        if args.count('--copyright') >= 1:
+            print(GPL_COPYRIGHT)
+        if args.count('--warranty') >= 1:
+            print(GPL_WARRANTY)
 
 def next_arg(args, opt):
     return args[args.index(opt) + 1]
@@ -84,6 +87,11 @@ def get_csv(args, delim):
     #return a 2d array
     return [i.split(delim) for i in raw]
 
+#def get_formats(table)
+#
+#    for i, row in enumerate(table):
+#
+
 def generate_sc_list(table):
     sc_list = []
     col_i = []
@@ -98,7 +106,9 @@ def generate_sc_list(table):
             else:
                 prefix = 'leftstring'
                 elem = '"{}"'.format(elem)
-            sc_list.append('{0} {1}{2} = {3}'.format(prefix, col_i[j], i, elem))
+                length = len(elem)
+            column = col_i[j]
+            sc_list.append(f'{prefix} {column}{i} = {elem}')
     return sc_list
 
 def get_filename(args):
