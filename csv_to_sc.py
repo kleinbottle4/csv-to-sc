@@ -20,7 +20,7 @@ GPL_WARRANTY = '''
 #or https://github.com/syed343/csv-to-sc/blob/master/LICENSE/.'''
 
 from parse_strings import is_subset, is_int, is_float, table_to_nums, num_to_sc_col
-from table import Table
+from sc_table import SC_table
 
 def main(args):
 
@@ -28,11 +28,11 @@ def main(args):
 
     delim = get_delimiter(args)
 
-    table = Table(get_csv(args, delim))
+    table = SC_table(get_csv(args, delim))
 
-#    formats = get_formats(table)
+    formats = table.get_cell_formats()
 
-    table.table = table_to_nums(table.table)
+    table.array = table_to_nums(table.array)
 
     sc_list = generate_sc_list(table)
 
@@ -87,18 +87,13 @@ def get_csv(args, delim):
     #return a 2d array
     return [i.split(delim) for i in raw]
 
-#def get_formats(table)
-#
-#    for i, row in enumerate(table):
-#
-
 def generate_sc_list(table):
     sc_list = []
     col_i = []
-    for i in range(table.get_width()):
+    for i in range(table.get_max_width()):
         col_i.append(num_to_sc_col(i))
 
-    for i, row in enumerate(table.table):
+    for i, row in enumerate(table.array):
         for j, elem in enumerate(row):
             d_type = type(elem)
             if d_type == int or d_type == float:
@@ -108,7 +103,7 @@ def generate_sc_list(table):
                 elem = '"{}"'.format(elem)
                 length = len(elem)
             column = col_i[j]
-            sc_list.append(f'{prefix} {column}{i} = {elem}')
+            sc_list.append('{} {}{} = {}'.format(prefix, column, i, elem))
     return sc_list
 
 def get_filename(args):
