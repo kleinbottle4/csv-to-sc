@@ -1,10 +1,13 @@
 NAME
+
     csv-to-sc - convert text files into a .sc spreadsheets based on a delimiter
 
 USAGE
+
     csv-to-sc [OPTIONS]
 
 DESCRIPTION
+
 csv-to-sc is a small program which converts a text file into a .sc file for use with the sc terminal spreadsheet editor.
 
 USER OPTIONS (none of them is required):
