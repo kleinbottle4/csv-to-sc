@@ -19,29 +19,20 @@ GPL_WARRANTY = '''
 #along with this program.  If not, see https://www.gnu.org/licenses/
 #or https://github.com/syed343/csv-to-sc/blob/master/LICENSE/.'''
 
-from parse_strings import is_subset, is_int, is_float, table_to_nums, num_to_sc_col
+from parse_strings import is_subset, is_int, is_float
+from parse_strings import table_to_nums, num_to_sc_col
 from sc_table import SC_table
 
 def main(args):
-
     show_gpl(args)
-
     delim = get_delimiter(args)
-
     table = SC_table(get_csv(args, delim))
-
     formats = table.get_cell_formats()
-
     table.array = table_to_nums(table.array)
-
     sc_list = generate_sc_list(table)
-
     filename = get_filename(args)
-
     mode = get_write_mode(args, filename)
-
     output_list(sc_list, filename, mode)
-
     return 0
 
 def show_gpl(args):
@@ -111,7 +102,7 @@ def get_filename(args):
         #-o not given
         if args.count('-p') == 0:
             #-p not given
-            if input('#Write output to file? (Y/n) ').lower().startswith('y'):
+            if input('#Write output to file? (y/N) ').lower().startswith('y'):
                 filename = input('#Filename: (c = cancel) ')
             else:
                 filename = 'c'

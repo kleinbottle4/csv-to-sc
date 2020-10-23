@@ -44,7 +44,8 @@ def is_int(string):
     return string != '' and is_subset(string, "0123456789")
 
 def table_to_nums(table):
-    for i, array in enumerate(table):
+    n_table = table[:][:]
+    for i, array in enumerate(n_table):
         for j, string in enumerate(array):
             if is_int(string):
                 table[i][j] = int(string)
