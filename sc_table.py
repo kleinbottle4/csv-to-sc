@@ -1,5 +1,5 @@
 
-#sc_table.py contains the SC_table class used in csv_to_sc.py
+#sc_table.py contains the SC_table class used in main.py
 
 #Copyright (C) 2019  syed343 (GitHub)
 #

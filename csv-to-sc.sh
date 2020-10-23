@@ -8,4 +8,4 @@ if [ $(python3 -c "print('$@'.count('--silent'))") -eq 0 ]; then
         echo
     fi
 fi
-python3 csv_to_sc.py "$@"
+python3 main.py "$@"

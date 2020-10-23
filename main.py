@@ -1,4 +1,4 @@
-#'csv_to_sc.py' is the main program for the csv-to-sc program.
+#'main.py' is the main program for the csv-to-sc program.
 #It  converts .csv files into .sc files.
 
 GPL_COPYRIGHT = '''

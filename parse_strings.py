@@ -1,4 +1,4 @@
-#parse_strings.py contains some useful functions for csv_to_sc.py
+#parse_strings.py contains some useful functions for main.py
 #
 #Copyright (C) 2019  syed343 (GitHub)
 #
