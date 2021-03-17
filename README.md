@@ -1,6 +1,7 @@
 NAME
 
-    csv-to-sc - convert text files into a .sc spreadsheets based on a delimiter
+	csv-to-sc - convert text files into .sc spreadsheets based on a
+	delimiter
 
 USAGE
 
@@ -8,7 +9,8 @@ USAGE
 
 DESCRIPTION
 
-csv-to-sc is a small program which converts a text file into a .sc file for use with the sc terminal spreadsheet editor.
+csv-to-sc is a small program which converts a text file into a .sc
+file for use with the sc terminal spreadsheet editor.
 
 USER OPTIONS (none of them is required):
 
@@ -33,14 +35,15 @@ USER OPTIONS (none of them is required):
     --copyright
         display copyright information
 
-    -s, --silent
-        do not display the little GNU GPL message at the beginning
-
 Do not write options together (e.g. -fd).
 
-If an option is not given, a prompt will ask for it (but see below about -p).
-If all the options are given, then no user prompts are required. This is useful for Bash scripts.
+If an option is not given, a prompt will ask for it (but see below
+about -p).
 
-If -p is given, then no prompt regarding writing to files will be given, except if -o has been specified while -m has not
+If all the options are given, then no user prompts are required. This
+is useful for Bash scripts.
+
+If -p is given, then no prompt regarding writing to files will be
+given, except if -o has been specified while -m has not
 
 If both -p and -o are given, -o takes priority.
